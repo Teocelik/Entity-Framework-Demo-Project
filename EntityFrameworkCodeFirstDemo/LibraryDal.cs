@@ -10,12 +10,22 @@ namespace EntityFrameworkCodeFirstDemo
     public class LibraryDal
     {
         //Burada direk veritabanını sorguluyoruz.
-
+        //Kütüphanedeki kitapları listeleyelim.
         public List<Book> GetAll()
         {
             using (ELibraryCodeFirstContext context = new ELibraryCodeFirstContext())
             {
                 return context.Books.ToList();
+            }
+        }
+
+        //Ödünç Alınan kitapları listelemek için de bir liste oluşturalım.
+        //Bu oluşturduğumuz listeyi View borrower book butonuna verelim.
+        public List<Borrow> GetBorrowerList()
+        {
+            using (ELibraryCodeFirstContext context = new ELibraryCodeFirstContext())
+            {
+                return context.Borrows.ToList();
             }
         }
 
@@ -53,6 +63,7 @@ namespace EntityFrameworkCodeFirstDemo
 
             }
         }
+
 
 
 

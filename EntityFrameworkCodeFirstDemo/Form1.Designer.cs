@@ -38,6 +38,12 @@
             this.lblBookBorrowName = new System.Windows.Forms.Label();
             this.lblBorrowerName = new System.Windows.Forms.Label();
             this.tbxBorrowerName = new System.Windows.Forms.TextBox();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnBackToLibrary = new System.Windows.Forms.Button();
+            this.tbxAuthor = new System.Windows.Forms.TextBox();
+            this.tbxPublishingH = new System.Windows.Forms.TextBox();
+            this.lblAuthor = new System.Windows.Forms.Label();
+            this.lblPublishingH = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLibrary)).BeginInit();
             this.gbxAddABook.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +63,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(26, 69);
+            this.lblName.Location = new System.Drawing.Point(17, 39);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(44, 16);
             this.lblName.TabIndex = 1;
@@ -65,14 +71,14 @@
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(103, 66);
+            this.tbxName.Location = new System.Drawing.Point(123, 36);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(126, 22);
             this.tbxName.TabIndex = 2;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(123, 112);
+            this.btnAdd.Location = new System.Drawing.Point(139, 190);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
@@ -83,6 +89,10 @@
             // gbxAddABook
             // 
             this.gbxAddABook.Controls.Add(this.btnAdd);
+            this.gbxAddABook.Controls.Add(this.lblPublishingH);
+            this.gbxAddABook.Controls.Add(this.lblAuthor);
+            this.gbxAddABook.Controls.Add(this.tbxPublishingH);
+            this.gbxAddABook.Controls.Add(this.tbxAuthor);
             this.gbxAddABook.Controls.Add(this.lblName);
             this.gbxAddABook.Controls.Add(this.tbxName);
             this.gbxAddABook.Location = new System.Drawing.Point(12, 302);
@@ -94,9 +104,9 @@
             // 
             // btnBorrow
             // 
-            this.btnBorrow.Location = new System.Drawing.Point(765, 148);
+            this.btnBorrow.Location = new System.Drawing.Point(746, 122);
             this.btnBorrow.Name = "btnBorrow";
-            this.btnBorrow.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrow.Size = new System.Drawing.Size(75, 36);
             this.btnBorrow.TabIndex = 5;
             this.btnBorrow.Text = "Borrow";
             this.btnBorrow.UseVisualStyleBackColor = true;
@@ -121,7 +131,7 @@
             // lblBorrowerName
             // 
             this.lblBorrowerName.AutoSize = true;
-            this.lblBorrowerName.Location = new System.Drawing.Point(584, 92);
+            this.lblBorrowerName.Location = new System.Drawing.Point(584, 86);
             this.lblBorrowerName.Name = "lblBorrowerName";
             this.lblBorrowerName.Size = new System.Drawing.Size(101, 16);
             this.lblBorrowerName.TabIndex = 8;
@@ -129,16 +139,71 @@
             // 
             // tbxBorrowerName
             // 
-            this.tbxBorrowerName.Location = new System.Drawing.Point(707, 92);
+            this.tbxBorrowerName.Location = new System.Drawing.Point(707, 80);
             this.tbxBorrowerName.Name = "tbxBorrowerName";
             this.tbxBorrowerName.Size = new System.Drawing.Size(161, 22);
             this.tbxBorrowerName.TabIndex = 9;
+            // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(1112, 30);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(151, 35);
+            this.btnView.TabIndex = 10;
+            this.btnView.Text = "View Borrower List";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnBackToLibrary
+            // 
+            this.btnBackToLibrary.Location = new System.Drawing.Point(1112, 87);
+            this.btnBackToLibrary.Name = "btnBackToLibrary";
+            this.btnBackToLibrary.Size = new System.Drawing.Size(151, 32);
+            this.btnBackToLibrary.TabIndex = 11;
+            this.btnBackToLibrary.Text = "Back to Library";
+            this.btnBackToLibrary.UseVisualStyleBackColor = true;
+            this.btnBackToLibrary.Click += new System.EventHandler(this.btnBackToLibrary_Click);
+            // 
+            // tbxAuthor
+            // 
+            this.tbxAuthor.Location = new System.Drawing.Point(123, 87);
+            this.tbxAuthor.Name = "tbxAuthor";
+            this.tbxAuthor.Size = new System.Drawing.Size(126, 22);
+            this.tbxAuthor.TabIndex = 3;
+            // 
+            // tbxPublishingH
+            // 
+            this.tbxPublishingH.Location = new System.Drawing.Point(123, 137);
+            this.tbxPublishingH.Name = "tbxPublishingH";
+            this.tbxPublishingH.Size = new System.Drawing.Size(126, 22);
+            this.tbxPublishingH.TabIndex = 4;
+            // 
+            // lblAuthor
+            // 
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAuthor.Location = new System.Drawing.Point(17, 90);
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(45, 16);
+            this.lblAuthor.TabIndex = 5;
+            this.lblAuthor.Text = "Author";
+            // 
+            // lblPublishingH
+            // 
+            this.lblPublishingH.AutoSize = true;
+            this.lblPublishingH.Location = new System.Drawing.Point(17, 143);
+            this.lblPublishingH.Name = "lblPublishingH";
+            this.lblPublishingH.Size = new System.Drawing.Size(85, 16);
+            this.lblPublishingH.TabIndex = 6;
+            this.lblPublishingH.Text = "Publishing H.";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 663);
+            this.ClientSize = new System.Drawing.Size(1275, 641);
+            this.Controls.Add(this.btnBackToLibrary);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.tbxBorrowerName);
             this.Controls.Add(this.lblBorrowerName);
             this.Controls.Add(this.lblBookBorrowName);
@@ -169,6 +234,12 @@
         private System.Windows.Forms.Label lblBookBorrowName;
         private System.Windows.Forms.Label lblBorrowerName;
         private System.Windows.Forms.TextBox tbxBorrowerName;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnBackToLibrary;
+        private System.Windows.Forms.Label lblPublishingH;
+        private System.Windows.Forms.Label lblAuthor;
+        private System.Windows.Forms.TextBox tbxPublishingH;
+        private System.Windows.Forms.TextBox tbxAuthor;
     }
 }
 

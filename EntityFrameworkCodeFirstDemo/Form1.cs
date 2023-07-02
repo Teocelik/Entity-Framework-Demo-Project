@@ -35,6 +35,8 @@ namespace EntityFrameworkCodeFirstDemo
             _libraryDal.Add(new Entities.Book
             {
                 Name = tbxName.Text,
+                Author = tbxAuthor.Text,
+                PublishingHouse = tbxPublishingH.Text
                 
             });
             LoadBooks();
@@ -64,7 +66,17 @@ namespace EntityFrameworkCodeFirstDemo
             LoadBooks();
             MessageBox.Show("Borrowed");
 
+        }
 
+        //Ödünç kitap listesini ekrana veren buton.
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            dgwLibrary.DataSource = _libraryDal.GetBorrowerList();
+        }
+
+        private void btnBackToLibrary_Click(object sender, EventArgs e)
+        {
+            dgwLibrary.DataSource = _libraryDal.GetAll();
         }
     }
 }
