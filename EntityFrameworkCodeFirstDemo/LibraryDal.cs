@@ -64,7 +64,15 @@ namespace EntityFrameworkCodeFirstDemo
             }
         }
 
+        //Kitap ismine göre arama
 
+        public List<Book> ListByName(string key)
+        {
+            using (ELibraryCodeFirstContext context = new ELibraryCodeFirstContext())
+            {
+                return context.Books.Where(p => p.Name.Contains(key)).ToList();
+            }
+        }
 
 
 

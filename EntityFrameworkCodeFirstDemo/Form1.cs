@@ -32,15 +32,25 @@ namespace EntityFrameworkCodeFirstDemo
         //Yeni bir kitap eklendi.
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            _libraryDal.Add(new Entities.Book
+            if (!string.IsNullOrEmpty(tbxName.Text) && !string.IsNullOrEmpty(tbxAuthor.Text) && !string.IsNullOrEmpty(tbxPublishingH.Text))
             {
-                Name = tbxName.Text,
-                Author = tbxAuthor.Text,
-                PublishingHouse = tbxPublishingH.Text
-                
-            });
-            LoadBooks();
-            MessageBox.Show("Added");
+                _libraryDal.Add(new Entities.Book
+                {
+                    Name = tbxName.Text,
+                    Author = tbxAuthor.Text,
+                    PublishingHouse = tbxPublishingH.Text
+
+                });
+                LoadBooks();
+                MessageBox.Show("Added");
+            }
+
+            else
+            {
+                MessageBox.Show("please fill in the required fields!");
+            }
+
+            
         }
 
         //ivent yakalama
@@ -52,19 +62,37 @@ namespace EntityFrameworkCodeFirstDemo
         //Butona tıklayınca ödünç alması
         private void btnBorrow_Click(object sender, EventArgs e)
         {
-            _libraryDal.Borrow(new Entities.Borrow
+            if (!string.IsNullOrEmpty(tbxBorrowerName.Text))
             {
-                Name = dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
-                Borrower = tbxBorrowerName.Text
-            });
+                if (tbxBorrow.Text != dgwLibrary.CurrentRow.Cells[1].Value)
+                {
+                    MessageBox.Show("No such book has been found!");
+                }
+                else
+                {
+                    _libraryDal.Borrow(new Entities.Borrow
+                    {
+                        Name = dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
+                        Author = dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
+                        PublishingHouse = dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
+                        Borrower = tbxBorrowerName.Text
+                    });
 
-            int selectedId = Convert.ToInt32(dgwLibrary.CurrentRow.Cells[0].Value);
-            _libraryDal.Delete(new Entities.Book
+                    int selectedId = Convert.ToInt32(dgwLibrary.CurrentRow.Cells[0].Value);
+                    _libraryDal.Delete(new Entities.Book
+                    {
+                        Id = selectedId
+                    });
+                    LoadBooks();
+                    MessageBox.Show("Borrowed");
+                }
+            }
+                
+            else
             {
-                Id = selectedId
-            });
-            LoadBooks();
-            MessageBox.Show("Borrowed");
+                MessageBox.Show("Please enter your name!");
+            }
+            
 
         }
 
@@ -77,6 +105,12 @@ namespace EntityFrameworkCodeFirstDemo
         private void btnBackToLibrary_Click(object sender, EventArgs e)
         {
             dgwLibrary.DataSource = _libraryDal.GetAll();
+        }
+
+        //Kitap Arama text'i
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgwLibrary.DataSource = _libraryDal.ListByName(tbxSearch.Text);
         }
     }
 }
