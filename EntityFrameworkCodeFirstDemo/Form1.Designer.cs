@@ -33,6 +33,10 @@
             this.tbxName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.gbxAddABook = new System.Windows.Forms.GroupBox();
+            this.lblPublishingH = new System.Windows.Forms.Label();
+            this.lblAuthor = new System.Windows.Forms.Label();
+            this.tbxPublishingH = new System.Windows.Forms.TextBox();
+            this.tbxAuthor = new System.Windows.Forms.TextBox();
             this.btnBorrow = new System.Windows.Forms.Button();
             this.tbxBorrow = new System.Windows.Forms.TextBox();
             this.lblBookBorrowName = new System.Windows.Forms.Label();
@@ -40,13 +44,10 @@
             this.tbxBorrowerName = new System.Windows.Forms.TextBox();
             this.btnView = new System.Windows.Forms.Button();
             this.btnBackToLibrary = new System.Windows.Forms.Button();
-            this.tbxAuthor = new System.Windows.Forms.TextBox();
-            this.tbxPublishingH = new System.Windows.Forms.TextBox();
-            this.lblAuthor = new System.Windows.Forms.Label();
-            this.lblPublishingH = new System.Windows.Forms.Label();
             this.gbxBorrow = new System.Windows.Forms.GroupBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.tbxSearch = new System.Windows.Forms.TextBox();
+            this.btnDeliver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLibrary)).BeginInit();
             this.gbxAddABook.SuspendLayout();
             this.gbxBorrow.SuspendLayout();
@@ -56,11 +57,11 @@
             // 
             this.dgwLibrary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwLibrary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwLibrary.Location = new System.Drawing.Point(10, 12);
+            this.dgwLibrary.Location = new System.Drawing.Point(12, 12);
             this.dgwLibrary.Name = "dgwLibrary";
             this.dgwLibrary.RowHeadersWidth = 51;
             this.dgwLibrary.RowTemplate.Height = 24;
-            this.dgwLibrary.Size = new System.Drawing.Size(772, 284);
+            this.dgwLibrary.Size = new System.Drawing.Size(917, 284);
             this.dgwLibrary.TabIndex = 0;
             this.dgwLibrary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -82,9 +83,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(122, 190);
+            this.btnAdd.Location = new System.Drawing.Point(122, 182);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(66, 23);
+            this.btnAdd.Size = new System.Drawing.Size(70, 31);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -105,6 +106,39 @@
             this.gbxAddABook.TabIndex = 4;
             this.gbxAddABook.TabStop = false;
             this.gbxAddABook.Text = "Add a Book";
+            // 
+            // lblPublishingH
+            // 
+            this.lblPublishingH.AutoSize = true;
+            this.lblPublishingH.Location = new System.Drawing.Point(15, 143);
+            this.lblPublishingH.Name = "lblPublishingH";
+            this.lblPublishingH.Size = new System.Drawing.Size(80, 16);
+            this.lblPublishingH.TabIndex = 6;
+            this.lblPublishingH.Text = "Publishing H.";
+            // 
+            // lblAuthor
+            // 
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAuthor.Location = new System.Drawing.Point(15, 90);
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(45, 16);
+            this.lblAuthor.TabIndex = 5;
+            this.lblAuthor.Text = "Author";
+            // 
+            // tbxPublishingH
+            // 
+            this.tbxPublishingH.Location = new System.Drawing.Point(108, 137);
+            this.tbxPublishingH.Name = "tbxPublishingH";
+            this.tbxPublishingH.Size = new System.Drawing.Size(111, 23);
+            this.tbxPublishingH.TabIndex = 4;
+            // 
+            // tbxAuthor
+            // 
+            this.tbxAuthor.Location = new System.Drawing.Point(108, 87);
+            this.tbxAuthor.Name = "tbxAuthor";
+            this.tbxAuthor.Size = new System.Drawing.Size(111, 23);
+            this.tbxAuthor.TabIndex = 3;
             // 
             // btnBorrow
             // 
@@ -150,7 +184,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(973, 556);
+            this.btnView.Location = new System.Drawing.Point(648, 322);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(132, 35);
             this.btnView.TabIndex = 10;
@@ -160,46 +194,13 @@
             // 
             // btnBackToLibrary
             // 
-            this.btnBackToLibrary.Location = new System.Drawing.Point(973, 597);
+            this.btnBackToLibrary.Location = new System.Drawing.Point(1019, 597);
             this.btnBackToLibrary.Name = "btnBackToLibrary";
             this.btnBackToLibrary.Size = new System.Drawing.Size(132, 32);
             this.btnBackToLibrary.TabIndex = 11;
             this.btnBackToLibrary.Text = "Back to Library";
             this.btnBackToLibrary.UseVisualStyleBackColor = true;
             this.btnBackToLibrary.Click += new System.EventHandler(this.btnBackToLibrary_Click);
-            // 
-            // tbxAuthor
-            // 
-            this.tbxAuthor.Location = new System.Drawing.Point(108, 87);
-            this.tbxAuthor.Name = "tbxAuthor";
-            this.tbxAuthor.Size = new System.Drawing.Size(111, 23);
-            this.tbxAuthor.TabIndex = 3;
-            // 
-            // tbxPublishingH
-            // 
-            this.tbxPublishingH.Location = new System.Drawing.Point(108, 137);
-            this.tbxPublishingH.Name = "tbxPublishingH";
-            this.tbxPublishingH.Size = new System.Drawing.Size(111, 23);
-            this.tbxPublishingH.TabIndex = 4;
-            // 
-            // lblAuthor
-            // 
-            this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAuthor.Location = new System.Drawing.Point(15, 90);
-            this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(45, 16);
-            this.lblAuthor.TabIndex = 5;
-            this.lblAuthor.Text = "Author";
-            // 
-            // lblPublishingH
-            // 
-            this.lblPublishingH.AutoSize = true;
-            this.lblPublishingH.Location = new System.Drawing.Point(15, 143);
-            this.lblPublishingH.Name = "lblPublishingH";
-            this.lblPublishingH.Size = new System.Drawing.Size(80, 16);
-            this.lblPublishingH.TabIndex = 6;
-            this.lblPublishingH.Text = "Publishing H.";
             // 
             // gbxBorrow
             // 
@@ -208,7 +209,7 @@
             this.gbxBorrow.Controls.Add(this.tbxBorrow);
             this.gbxBorrow.Controls.Add(this.lblBookBorrowName);
             this.gbxBorrow.Controls.Add(this.lblBorrowerName);
-            this.gbxBorrow.Location = new System.Drawing.Point(299, 302);
+            this.gbxBorrow.Location = new System.Drawing.Point(273, 302);
             this.gbxBorrow.Name = "gbxBorrow";
             this.gbxBorrow.Size = new System.Drawing.Size(289, 213);
             this.gbxBorrow.TabIndex = 12;
@@ -218,7 +219,7 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(812, 32);
+            this.lblSearch.Location = new System.Drawing.Point(933, 32);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(47, 16);
             this.lblSearch.TabIndex = 13;
@@ -226,17 +227,28 @@
             // 
             // tbxSearch
             // 
-            this.tbxSearch.Location = new System.Drawing.Point(888, 25);
+            this.tbxSearch.Location = new System.Drawing.Point(1003, 25);
             this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(217, 23);
+            this.tbxSearch.Size = new System.Drawing.Size(148, 23);
             this.tbxSearch.TabIndex = 14;
             this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
+            // 
+            // btnDeliver
+            // 
+            this.btnDeliver.Location = new System.Drawing.Point(798, 321);
+            this.btnDeliver.Name = "btnDeliver";
+            this.btnDeliver.Size = new System.Drawing.Size(131, 36);
+            this.btnDeliver.TabIndex = 0;
+            this.btnDeliver.Text = "Deliver";
+            this.btnDeliver.UseVisualStyleBackColor = true;
+            this.btnDeliver.Click += new System.EventHandler(this.btnDeliver_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 641);
+            this.ClientSize = new System.Drawing.Size(1163, 641);
+            this.Controls.Add(this.btnDeliver);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.gbxBorrow);
@@ -279,6 +291,7 @@
         private System.Windows.Forms.GroupBox gbxBorrow;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox tbxSearch;
+        private System.Windows.Forms.Button btnDeliver;
     }
 }
 

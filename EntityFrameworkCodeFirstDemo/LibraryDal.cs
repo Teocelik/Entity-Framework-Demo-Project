@@ -55,6 +55,12 @@ namespace EntityFrameworkCodeFirstDemo
 
         public void Delete(Book book)
         {
+            deleted(book);
+        }
+
+        //metod haline getirdiktekrar yazmamak için.
+        private static void deleted(Book book)
+        {
             using (ELibraryCodeFirstContext context = new ELibraryCodeFirstContext())
             {
                 var entity = context.Entry(book);
@@ -74,11 +80,27 @@ namespace EntityFrameworkCodeFirstDemo
             }
         }
 
+        //Aldığımız bir kitabı tekrar teslim etmek için kod bloğu
+        public void Deliver(Book book)
+        {
+            using (ELibraryCodeFirstContext context = new ELibraryCodeFirstContext())
+            {
+                var entity = context.Entry(book);
+                entity.State = System.Data.Entity.EntityState.Added;
+                context.SaveChanges();
+            }
+            
+        }
 
-
-
-
-
+        public void DeleteBorrowBook(Borrow key)
+        {
+            using (ELibraryCodeFirstContext context = new ELibraryCodeFirstContext())
+            {
+                var entity = context.Entry(key);
+                entity.State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
+        }
 
 
 

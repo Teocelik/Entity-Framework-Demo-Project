@@ -64,7 +64,7 @@ namespace EntityFrameworkCodeFirstDemo
         {
             if (!string.IsNullOrEmpty(tbxBorrowerName.Text))
             {
-                if (tbxBorrow.Text != dgwLibrary.CurrentRow.Cells[1].Value)
+                if (tbxBorrow.Text != dgwLibrary.CurrentRow.Cells[1].Value.ToString())
                 {
                     MessageBox.Show("No such book has been found!");
                 }
@@ -99,9 +99,15 @@ namespace EntityFrameworkCodeFirstDemo
         //Ödünç kitap listesini ekrana veren buton.
         private void btnView_Click(object sender, EventArgs e)
         {
+            LoadBorrowBooks();
+        }
+
+        private void LoadBorrowBooks()
+        {
             dgwLibrary.DataSource = _libraryDal.GetBorrowerList();
         }
 
+        //Kütüphaneye geri dönme
         private void btnBackToLibrary_Click(object sender, EventArgs e)
         {
             dgwLibrary.DataSource = _libraryDal.GetAll();
@@ -111,6 +117,38 @@ namespace EntityFrameworkCodeFirstDemo
         private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
             dgwLibrary.DataSource = _libraryDal.ListByName(tbxSearch.Text);
+        }
+
+        //kitabı teslim etme butonu
+        private void btnDeliver_Click(object sender, EventArgs e)
+        {
+            if (dgwLibrary.SelectedRows.Count > 0)
+            {
+                _libraryDal.Deliver(new Entities.Book
+                {
+                    Id = Convert.ToInt32(dgwLibrary.CurrentRow.Cells[0].Value),
+                    Name = dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
+                    Author = dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
+                    PublishingHouse = dgwLibrary.CurrentRow.Cells[3].Value.ToString()
+                });
+
+                //Teslim edildikten sonra Borrows tablosundan Id üzerinden silindi.
+                int SelectedId = Convert.ToInt32(dgwLibrary.CurrentRow.Cells[0].Value);
+                _libraryDal.DeleteBorrowBook(new Entities.Borrow
+                {
+                    Id = SelectedId
+                });
+                LoadBooks();
+                LoadBorrowBooks();
+
+                MessageBox.Show("Delivered");
+            }
+            else
+            {
+                MessageBox.Show("Please select a book to deliver!");
+            }
+           
+
         }
     }
 }
