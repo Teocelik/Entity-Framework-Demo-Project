@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityFrameworkCodeFirstDemo.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,22 @@ using System.Windows.Forms;
 
 namespace EntityFrameworkCodeFirstDemo
 {
-    public partial class Form1 : Form
+    public partial class BookForm : Form
     {
-        public Form1()
+        //bu formun data kaynağına(kitaplara) diğerformlar üzerinden de ulaşmak için bir metod yazalım.
+
+        public DataTable GetBooksDataSource(BookForm bookForm)
+        {
+            return (DataTable)bookForm.dgwLibrary.DataSource;
+        }
+
+
+
+
+
+
+
+        public BookForm()
         {
             InitializeComponent();
         }
@@ -62,36 +76,45 @@ namespace EntityFrameworkCodeFirstDemo
         //Butona tıklayınca ödünç alması
         private void btnBorrow_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbxBorrowerName.Text))
-            {
-                if (tbxBorrow.Text != dgwLibrary.CurrentRow.Cells[1].Value.ToString())
-                {
-                    MessageBox.Show("No such book has been found!");
-                }
-                else
-                {
-                    _libraryDal.Borrow(new Entities.Borrow
-                    {
-                        Name = dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
-                        Author = dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
-                        PublishingHouse = dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
-                        Borrower = tbxBorrowerName.Text
-                    });
+            //Burada, BorrowForm formunu oluştururken this anahtar kelimesini kullanarak mevcut formun referansını aktarıyoruz.
+            //Bu, BorrowForm formunun oluşturulması sırasında, this referansının BorrowForm'a geçirilerek ilgili ilişkiyi sağlar.
 
-                    int selectedId = Convert.ToInt32(dgwLibrary.CurrentRow.Cells[0].Value);
-                    _libraryDal.Delete(new Entities.Book
-                    {
-                        Id = selectedId
-                    });
-                    LoadBooks();
-                    MessageBox.Show("Borrowed");
-                }
-            }
+            //Bu şekilde, borrowForm örneği, mevcut form (ana form) olan this formuna erişim sağlar.
+            //Böylece, BorrowForm formu içinde, this formundaki özelliklere, metotlara veya diğer bileşenlere erişebilirsiniz.
+            BorrowForm borrowForm = new BorrowForm(this);
+            borrowForm.ShowDialog();
+
+            //if (!string.IsNullOrEmpty(tbxBorrowerName.Text))
+            //{
+            //    if (tbxBorrow.Text != dgwLibrary.CurrentRow.Cells[1].Value.ToString())
+            //    {
+            //        MessageBox.Show("No such book has been found!");
+            //    }
+            //    else
+            //    {
+            //        _libraryDal.Borrow(new Entities.Borrow
+            //        {
+            //            Name = dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
+            //            Author = dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
+            //            PublishingHouse = dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
+            //            Borrower = tbxBorrowerName.Text,
+                        
+            //        });
+
+            //        int selectedId = Convert.ToInt32(dgwLibrary.CurrentRow.Cells[0].Value);
+            //        _libraryDal.Delete(new Entities.Book
+            //        {
+            //            Id = selectedId
+            //        });
+            //        LoadBooks();
+            //        MessageBox.Show("Borrowed");
+            //    }
+            //}
                 
-            else
-            {
-                MessageBox.Show("Please enter your name!");
-            }
+            //else
+            //{
+            //    MessageBox.Show("Please enter your name!");
+            //}
             
 
         }

@@ -15,7 +15,7 @@ namespace EntityFrameworkCodeFirstDemo.Entities
         public string Author { get; set; }
         public string PublishingHouse { get; set; }
         public string Borrower { get; set; }
+        public string PhoneNumber { get; set; }
 
- 
     }
 }

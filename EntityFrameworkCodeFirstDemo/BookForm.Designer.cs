@@ -1,6 +1,6 @@
 ﻿namespace EntityFrameworkCodeFirstDemo
 {
-    partial class Form1
+    partial class BookForm
     {
         /// <summary>
         /// Required designer variable.
@@ -142,7 +142,7 @@
             // 
             // btnBorrow
             // 
-            this.btnBorrow.Location = new System.Drawing.Point(150, 171);
+            this.btnBorrow.Location = new System.Drawing.Point(1039, 67);
             this.btnBorrow.Name = "btnBorrow";
             this.btnBorrow.Size = new System.Drawing.Size(66, 36);
             this.btnBorrow.TabIndex = 5;
@@ -205,7 +205,6 @@
             // gbxBorrow
             // 
             this.gbxBorrow.Controls.Add(this.tbxBorrowerName);
-            this.gbxBorrow.Controls.Add(this.btnBorrow);
             this.gbxBorrow.Controls.Add(this.tbxBorrow);
             this.gbxBorrow.Controls.Add(this.lblBookBorrowName);
             this.gbxBorrow.Controls.Add(this.lblBorrowerName);
@@ -243,12 +242,13 @@
             this.btnDeliver.UseVisualStyleBackColor = true;
             this.btnDeliver.Click += new System.EventHandler(this.btnDeliver_Click);
             // 
-            // Form1
+            // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 641);
             this.Controls.Add(this.btnDeliver);
+            this.Controls.Add(this.btnBorrow);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.gbxBorrow);
@@ -257,7 +257,7 @@
             this.Controls.Add(this.gbxAddABook);
             this.Controls.Add(this.dgwLibrary);
             this.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Name = "Form1";
+            this.Name = "BookForm";
             this.Text = "Kütüphane Yönetim Sistemleri";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwLibrary)).EndInit();
@@ -271,27 +271,26 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgwLibrary;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox gbxAddABook;
         private System.Windows.Forms.Button btnBorrow;
-        private System.Windows.Forms.TextBox tbxBorrow;
         private System.Windows.Forms.Label lblBookBorrowName;
         private System.Windows.Forms.Label lblBorrowerName;
-        private System.Windows.Forms.TextBox tbxBorrowerName;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnBackToLibrary;
         private System.Windows.Forms.Label lblPublishingH;
         private System.Windows.Forms.Label lblAuthor;
-        private System.Windows.Forms.TextBox tbxPublishingH;
-        private System.Windows.Forms.TextBox tbxAuthor;
         private System.Windows.Forms.GroupBox gbxBorrow;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Button btnDeliver;
+        public System.Windows.Forms.DataGridView dgwLibrary;
+        public System.Windows.Forms.TextBox tbxName;
+        public System.Windows.Forms.TextBox tbxBorrow;
+        public System.Windows.Forms.TextBox tbxBorrowerName;
+        public System.Windows.Forms.TextBox tbxPublishingH;
+        public System.Windows.Forms.TextBox tbxAuthor;
     }
 }
 
