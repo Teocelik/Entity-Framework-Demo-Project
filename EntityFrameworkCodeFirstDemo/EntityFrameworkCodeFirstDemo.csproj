@@ -65,6 +65,18 @@
     <Compile Include="BookForm.Designer.cs">
       <DependentUpon>BookForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BookDeliverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookDeliverForm.Designer.cs">
+      <DependentUpon>BookDeliverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BorrowBooksListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BorrowBooksListForm.Designer.cs">
+      <DependentUpon>BorrowBooksListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BorrowForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BookForm.resx">
       <DependentUpon>BookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookDeliverForm.resx">
+      <DependentUpon>BookDeliverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BorrowBooksListForm.resx">
+      <DependentUpon>BorrowBooksListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BorrowForm.resx">
       <DependentUpon>BorrowForm.cs</DependentUpon>

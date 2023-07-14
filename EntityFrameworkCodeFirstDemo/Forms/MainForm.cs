@@ -23,5 +23,16 @@ namespace EntityFrameworkCodeFirstDemo.Forms
             bookForm.ShowDialog();
             
         }
+
+        private void btnDelivered_Click(object sender, EventArgs e)
+        {
+            BookDeliverForm bookDeliverForm = new BookDeliverForm();
+            bookDeliverForm.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

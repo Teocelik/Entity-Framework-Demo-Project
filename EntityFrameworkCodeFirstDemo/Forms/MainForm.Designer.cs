@@ -50,6 +50,7 @@
             this.btnDelivered.TabIndex = 2;
             this.btnDelivered.Text = "Deliver";
             this.btnDelivered.UseVisualStyleBackColor = true;
+            this.btnDelivered.Click += new System.EventHandler(this.btnDelivered_Click);
             // 
             // MainForm
             // 
@@ -61,6 +62,7 @@
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }

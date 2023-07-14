@@ -20,13 +20,13 @@ namespace EntityFrameworkCodeFirstDemo.Forms
         //Bu yapı, BorrowForm formunun, BookForm formu ile bir ilişkisi olduğunu gösterir.
         //BorrowForm formunda, BookForm formunun özelliklerine veya metotlarına erişebilir
 
-        BookForm bookForm;
+        BookForm _bookForm;
         public BorrowForm(BookForm bookForm)
         {
             InitializeComponent();
             //this anahtar kelimesi, bir sınıfın içinde bulunduğu anlamına gelir
             //ve o sınıfın bir örneğini ifade eder.
-            this.bookForm = bookForm;
+            this._bookForm = bookForm;
         }
         
         
@@ -51,23 +51,25 @@ namespace EntityFrameworkCodeFirstDemo.Forms
 
             
 
-            if (bookForm.dgwLibrary.SelectedRows.Count > 0)
+            if (_bookForm.dgwLibrary.SelectedRows.Count > 0)
             {
+
                 _libraryDal.Borrow(new Entities.Borrow
                 {
-                    Name = bookForm.dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
-                    Author = bookForm.dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
-                    PublishingHouse = bookForm.dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
+                    Name = _bookForm.dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
+                    Author = _bookForm.dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
+                    PublishingHouse = _bookForm.dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
                     Borrower = tbxBorrowerName.Text,
                     PhoneNumber = tbxPhoneNumber.Text
                 });
 
 
-                int selectedId = Convert.ToInt32(bookForm.dgwLibrary.CurrentRow.Cells[0].Value);
+                int selectedId = Convert.ToInt32(_bookForm.dgwLibrary.CurrentRow.Cells[0].Value);
                 _libraryDal.Delete(new Entities.Book
                         {
                     Id = selectedId
                 });
+                _bookForm.dgwLibrary.DataSource = _libraryDal.GetAll();
                 MessageBox.Show("Borrowed");
             }
             
