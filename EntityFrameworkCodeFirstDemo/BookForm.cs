@@ -13,20 +13,20 @@ namespace EntityFrameworkCodeFirstDemo
 {
     public partial class BookForm : Form
     {
-        //bu formun data kaynağına(kitaplara) diğer formlar üzerinden de ulaşmak için bir metod yazalım.
-
-        //public DataTable GetBooksDataSource(BookForm bookForm)
-        //{
-        //    return (DataTable)bookForm.dgwLibrary.DataSource;
-        //}
-
-
-
-
+        
 
         public BookForm()
         {
             InitializeComponent();
+
+            //For'un hareket etmemesi için kod satırı
+            this.FormBorderStyle = FormBorderStyle.None;
+            //merkeze yerleştirdim.
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            this.MinimumSize = new Size(1080, 600);
+            this.MaximumSize = new Size(1080, 600);
+
         }
 
         //Kitaplar listelendi.
@@ -53,6 +53,12 @@ namespace EntityFrameworkCodeFirstDemo
                     PublishingHouse = tbxPublishingH.Text
 
                 });
+
+                // TextBox'ların içeriğini temizle
+                tbxName.Text = string.Empty;
+                tbxAuthor.Text = string.Empty;
+                tbxPublishingH.Text = string.Empty;
+
                 LoadBooks();
                 MessageBox.Show("Added");
             }
@@ -65,11 +71,7 @@ namespace EntityFrameworkCodeFirstDemo
             
         }
 
-        //ivent yakalama
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            tbxBorrow.Text = dgwLibrary.CurrentRow.Cells[1].Value.ToString();
-        }
+       
 
         //Butona tıklayınca ödünç alması
         private void btnBorrow_Click(object sender, EventArgs e)
@@ -81,39 +83,6 @@ namespace EntityFrameworkCodeFirstDemo
             //Böylece, BorrowForm formu içinde, this formundaki özelliklere, metotlara veya diğer bileşenlere erişebilirsiniz.
             BorrowForm borrowForm = new BorrowForm(this);
             borrowForm.ShowDialog();
-
-            //if (!string.IsNullOrEmpty(tbxBorrowerName.Text))
-            //{
-            //    if (tbxBorrow.Text != dgwLibrary.CurrentRow.Cells[1].Value.ToString())
-            //    {
-            //        MessageBox.Show("No such book has been found!");
-            //    }
-            //    else
-            //    {
-            //        _libraryDal.Borrow(new Entities.Borrow
-            //        {
-            //            Name = dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
-            //            Author = dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
-            //            PublishingHouse = dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
-            //            Borrower = tbxBorrowerName.Text,
-                        
-            //        });
-
-            //        int selectedId = Convert.ToInt32(dgwLibrary.CurrentRow.Cells[0].Value);
-            //        _libraryDal.Delete(new Entities.Book
-            //        {
-            //            Id = selectedId
-            //        });
-            //        LoadBooks();
-            //        MessageBox.Show("Borrowed");
-            //    }
-            //}
-                
-            //else
-            //{
-            //    MessageBox.Show("Please enter your name!");
-            //}
-            
 
         }
 
@@ -140,6 +109,10 @@ namespace EntityFrameworkCodeFirstDemo
             dgwLibrary.DataSource = _libraryDal.ListByName(tbxSearch.Text);
         }
 
-       
+        //Ana Sayfaya yönlendirme için kod blokları
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

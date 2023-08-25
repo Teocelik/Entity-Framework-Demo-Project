@@ -18,15 +18,18 @@ namespace EntityFrameworkCodeFirstDemo.Forms
 
         //Alanlar, sınıfın bir parçası olarak tanımlanan değişkenlerdir.
         //Bu durumda "_bookForm" alanı, "BookDeliverForm" sınıfının bir parçasıdır.
-
         
         public BookDeliverForm()
         {
             InitializeComponent();
+            //form'un şekli ile ilgili kodlar
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            //form'a ulaşmak için alan üzerinden yeniledim.
             _borrowBookListForm = new BorrowBooksListForm();
             
         }
-
        
         private void btnDeliverTheBook_Click(object sender, EventArgs e)
         {
@@ -65,8 +68,6 @@ namespace EntityFrameworkCodeFirstDemo.Forms
                     _libraryDal.GetAll();
 
                     recordFound = true;
-                    
-                  
                 }
                 
             }
@@ -80,9 +81,12 @@ namespace EntityFrameworkCodeFirstDemo.Forms
             {
                 MessageBox.Show("The recort is not found!");
             }
+        }
 
-
-
+        //Cancel botunu için kod satırı
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -30,11 +30,11 @@
         {
             this.lblBorrowTheBook = new System.Windows.Forms.Label();
             this.gbxBorrowTheBook = new System.Windows.Forms.GroupBox();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.tbxPhoneNumber = new System.Windows.Forms.TextBox();
             this.tbxBorrowerName = new System.Windows.Forms.TextBox();
             this.btnBorrowTheBook = new System.Windows.Forms.Button();
             this.lblBorrowerName = new System.Windows.Forms.Label();
-            this.tbxPhoneNumber = new System.Windows.Forms.TextBox();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.gbxBorrowTheBook.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,22 @@
             this.gbxBorrowTheBook.TabStop = false;
             this.gbxBorrowTheBook.Text = "-";
             // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.AutoSize = true;
+            this.lblPhoneNumber.Location = new System.Drawing.Point(111, 101);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(97, 16);
+            this.lblPhoneNumber.TabIndex = 11;
+            this.lblPhoneNumber.Text = "Phone Number";
+            // 
+            // tbxPhoneNumber
+            // 
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(250, 95);
+            this.tbxPhoneNumber.Name = "tbxPhoneNumber";
+            this.tbxPhoneNumber.Size = new System.Drawing.Size(141, 22);
+            this.tbxPhoneNumber.TabIndex = 10;
+            // 
             // tbxBorrowerName
             // 
             this.tbxBorrowerName.Location = new System.Drawing.Point(250, 34);
@@ -73,9 +89,9 @@
             // 
             // btnBorrowTheBook
             // 
-            this.btnBorrowTheBook.Location = new System.Drawing.Point(228, 194);
+            this.btnBorrowTheBook.Location = new System.Drawing.Point(238, 195);
             this.btnBorrowTheBook.Name = "btnBorrowTheBook";
-            this.btnBorrowTheBook.Size = new System.Drawing.Size(66, 36);
+            this.btnBorrowTheBook.Size = new System.Drawing.Size(97, 36);
             this.btnBorrowTheBook.TabIndex = 5;
             this.btnBorrowTheBook.Text = "Borrow";
             this.btnBorrowTheBook.UseVisualStyleBackColor = true;
@@ -89,22 +105,6 @@
             this.lblBorrowerName.Size = new System.Drawing.Size(101, 16);
             this.lblBorrowerName.TabIndex = 8;
             this.lblBorrowerName.Text = "Borrower Name";
-            // 
-            // tbxPhoneNumber
-            // 
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(250, 111);
-            this.tbxPhoneNumber.Name = "tbxPhoneNumber";
-            this.tbxPhoneNumber.Size = new System.Drawing.Size(141, 22);
-            this.tbxPhoneNumber.TabIndex = 10;
-            // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(107, 117);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(97, 16);
-            this.lblPhoneNumber.TabIndex = 11;
-            this.lblPhoneNumber.Text = "Phone Number";
             // 
             // BorrowForm
             // 

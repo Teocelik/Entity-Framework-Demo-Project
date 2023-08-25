@@ -15,6 +15,14 @@ namespace EntityFrameworkCodeFirstDemo.Forms
         public MainForm()
         {
             InitializeComponent();
+            //Size özelliği, formun genişlik ve yükseklik değerlerini temsil eder
+            //ve new Size(width, height) şeklinde kullanılır.
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            this.MinimumSize = new Size(550, 600);
+            this.MaximumSize = new Size(550, 600);
+            
         }
 
         private void btnToLibrary_Click(object sender, EventArgs e)
@@ -28,6 +36,12 @@ namespace EntityFrameworkCodeFirstDemo.Forms
         {
             BookDeliverForm bookDeliverForm = new BookDeliverForm();
             bookDeliverForm.ShowDialog();
+        }
+
+        //Main form'u kapatmak için
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

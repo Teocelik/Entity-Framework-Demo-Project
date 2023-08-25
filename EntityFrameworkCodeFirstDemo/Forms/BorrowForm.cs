@@ -54,23 +54,38 @@ namespace EntityFrameworkCodeFirstDemo.Forms
             if (_bookForm.dgwLibrary.SelectedRows.Count > 0)
             {
 
-                _libraryDal.Borrow(new Entities.Borrow
+                if (tbxPhoneNumber.Text.Length == 10)
                 {
-                    Name = _bookForm.dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
-                    Author = _bookForm.dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
-                    PublishingHouse = _bookForm.dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
-                    Borrower = tbxBorrowerName.Text,
-                    PhoneNumber = tbxPhoneNumber.Text
-                });
+                    _libraryDal.Borrow(new Entities.Borrow
+                    {
+                        Name = _bookForm.dgwLibrary.CurrentRow.Cells[1].Value.ToString(),
+                        Author = _bookForm.dgwLibrary.CurrentRow.Cells[2].Value.ToString(),
+                        PublishingHouse = _bookForm.dgwLibrary.CurrentRow.Cells[3].Value.ToString(),
+                        Borrower = tbxBorrowerName.Text,
+                        PhoneNumber = tbxPhoneNumber.Text
+                    });
 
 
-                int selectedId = Convert.ToInt32(_bookForm.dgwLibrary.CurrentRow.Cells[0].Value);
-                _libraryDal.Delete(new Entities.Book
-                        {
-                    Id = selectedId
-                });
-                _bookForm.dgwLibrary.DataSource = _libraryDal.GetAll();
-                MessageBox.Show("Borrowed");
+                    int selectedId = Convert.ToInt32(_bookForm.dgwLibrary.CurrentRow.Cells[0].Value);
+                    _libraryDal.Delete(new Entities.Book
+                    {
+                        Id = selectedId
+                    });
+                    _bookForm.dgwLibrary.DataSource = _libraryDal.GetAll();
+                    MessageBox.Show("Borrowed");
+                }
+                else
+                {
+                    MessageBox.Show("Please enter your 10 digit Phone number");
+                    
+                }
+                
+                
+            }
+
+            else
+            {
+                MessageBox.Show("Please select a book");
             }
             
 

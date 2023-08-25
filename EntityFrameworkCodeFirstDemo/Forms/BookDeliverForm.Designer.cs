@@ -32,6 +32,7 @@
             this.lblEnterYourNumber = new System.Windows.Forms.Label();
             this.tbxEnterYourNumber = new System.Windows.Forms.TextBox();
             this.btnDeliverTheBook = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDeliverTheBook
@@ -63,7 +64,7 @@
             // 
             // btnDeliverTheBook
             // 
-            this.btnDeliverTheBook.Location = new System.Drawing.Point(326, 285);
+            this.btnDeliverTheBook.Location = new System.Drawing.Point(257, 308);
             this.btnDeliverTheBook.Name = "btnDeliverTheBook";
             this.btnDeliverTheBook.Size = new System.Drawing.Size(131, 38);
             this.btnDeliverTheBook.TabIndex = 3;
@@ -71,11 +72,22 @@
             this.btnDeliverTheBook.UseVisualStyleBackColor = true;
             this.btnDeliverTheBook.Click += new System.EventHandler(this.btnDeliverTheBook_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(411, 308);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(112, 38);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // BookDeliverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDeliverTheBook);
             this.Controls.Add(this.tbxEnterYourNumber);
             this.Controls.Add(this.lblEnterYourNumber);
@@ -93,5 +105,6 @@
         private System.Windows.Forms.Label lblEnterYourNumber;
         private System.Windows.Forms.Button btnDeliverTheBook;
         public System.Windows.Forms.TextBox tbxEnterYourNumber;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

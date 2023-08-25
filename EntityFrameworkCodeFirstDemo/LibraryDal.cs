@@ -106,14 +106,5 @@ namespace EntityFrameworkCodeFirstDemo
 
 
 
-
-
-
-
-
-
-
-
-
     }
 }

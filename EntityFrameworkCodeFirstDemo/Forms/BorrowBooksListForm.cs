@@ -26,7 +26,7 @@ namespace EntityFrameworkCodeFirstDemo.Forms
         {
             DataTable dataTable = new DataTable();
 
-            //Kolonlar Eklendi.
+            //Kolonları DataTable'a ekledim.
             dataTable.Columns.Add("Id", typeof(int));
             dataTable.Columns.Add("Name", typeof(string));
             dataTable.Columns.Add("Author", typeof(string));
@@ -34,7 +34,7 @@ namespace EntityFrameworkCodeFirstDemo.Forms
             dataTable.Columns.Add("Borrower", typeof(string));
             dataTable.Columns.Add("PhoneNumber", typeof(string));
 
-            //Veriler eklendi.
+            //satırları ekledim.
 
             foreach(Borrow borrow in borrowList)
             {
@@ -44,6 +44,7 @@ namespace EntityFrameworkCodeFirstDemo.Forms
 
         }
 
+        //MEVCUT VERİLERE ERİŞMEK İÇİN BİR METOD YAZDIM.
 
         public DataTable GetData()
         {
@@ -51,6 +52,7 @@ namespace EntityFrameworkCodeFirstDemo.Forms
             DataTable borrowTable = ConvertToDataTable(borrowList);
             dgwBorrowBookList.DataSource = borrowTable;
             return borrowTable;
+
         }
 
 
